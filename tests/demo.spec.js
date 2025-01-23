@@ -74,7 +74,7 @@ describe('Puppeteer Demo', () => {
     await setTimeout(2000)
   })
 
-  it('File Upload', async () => {
+  it.only('File Upload', async () => {
     await page.goto('https://qa-automation-practice.netlify.app/file-upload')
 
     const fileInput = await page.$("input[type='file']")
@@ -84,5 +84,11 @@ describe('Puppeteer Demo', () => {
     await page.click("button[type='submit']")
 
     await page.waitForSelector('#file_upload_response')
+
+    await logTitle(page)
   })
 })
+
+async function logTitle(page) {
+  console.log('Log from custom function: ' + (await page.title()))
+}
