@@ -11,6 +11,7 @@ describe('Puppeteer Demo', () => {
   let browserOptions = {
     headless: false,
     timeout: 15000,
+    devtools: true,
   }
 
   let viewportOptions = {
@@ -28,7 +29,7 @@ describe('Puppeteer Demo', () => {
     await browser.close()
   })
 
-  it('First test', async () => {
+  it('Browser Actions', async () => {
     await page.goto('https://example.com/')
     await setTimeout(2000)
 
@@ -39,16 +40,25 @@ describe('Puppeteer Demo', () => {
     expect(pageTitle).to.contain('Example Domain')
     expect(pageUrl).to.contain('example.com')
     await page.waitForSelector('h1')
-
   })
 
-  it('Second test', async () => {
-    await page.goto('https://example.com/')
-    await setTimeout(2000)
+  it('Web Elements - Input, Buttons', async () => {
+    await page.goto('https://www.saucedemo.com/')
+    await page.waitForSelector('form')
 
-    console.log(await browser.version())
-    console.log(await page.title())
-    console.log(await page.url())
-    console.log(await page.viewport())
+    await page.type('input[placeholder="Username"]', 'username', { delay: 500 })
+    await page.type('#password', 'password')
+    await page.click('[data-test="login-button"]')
+    await page.waitForSelector('.error')
+
+    await setTimeout(3000)
+  })
+
+  it('Multimedia', async () => {
+    await page.goto('https://www.saucedemo.com/')
+    await page.waitForSelector('form')
+
+    await page.screenshot({ path: 'my-screenshot.png' })
+    await page.pdf({ path: 'my-pdf.pdf' })
   })
 })
