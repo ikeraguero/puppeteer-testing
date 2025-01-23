@@ -1,0 +1,214 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-23T16:48:02.215Z",
+    "end": "2025-01-23T16:48:27.037Z",
+    "duration": 24822,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6084f4e9-9dd8-4c48-89e3-48df58984db2",
+      "title": "",
+      "fullFile": "C:\\Users\\iaguero\\Desktop\\Puppeteer\\tests\\demo.spec.js",
+      "file": "\\tests\\demo.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "acd43f59-fc72-473c-805d-d72455525863",
+          "title": "Puppeteer Demo",
+          "fullFile": "C:\\Users\\iaguero\\Desktop\\Puppeteer\\tests\\demo.spec.js",
+          "file": "\\tests\\demo.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Puppeteer Demo\"",
+              "fullTitle": "Puppeteer Demo \"before each\" hook in \"Puppeteer Demo\"",
+              "timedOut": false,
+              "duration": 1013,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "browser = await puppeteer.launch(browserOptions)\npage = await browser.newPage()\nawait page.setViewport(viewportOptions)",
+              "err": {},
+              "uuid": "064be947-9d92-4283-80b0-8a180daa5e08",
+              "parentUUID": "acd43f59-fc72-473c-805d-d72455525863",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Puppeteer Demo\"",
+              "fullTitle": "Puppeteer Demo \"after each\" hook in \"Puppeteer Demo\"",
+              "timedOut": false,
+              "duration": 340,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await browser.close()",
+              "err": {},
+              "uuid": "02dc9017-40ee-480b-b5bd-b06ac42cf156",
+              "parentUUID": "acd43f59-fc72-473c-805d-d72455525863",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Browser Actions",
+              "fullTitle": "Puppeteer Demo Browser Actions",
+              "timedOut": false,
+              "duration": 2733,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto('https://example.com/')\nawait setTimeout(2000)\nconst pageTitle = await page.title()\nconst pageUrl = await page.url()\n//assertions\nexpect(pageTitle).to.contain('Example Domain')\nexpect(pageUrl).to.contain('example.com')\nawait page.waitForSelector('h1')",
+              "err": {},
+              "uuid": "aad6a53a-72b8-4d64-b4b9-eb8fa44e0371",
+              "parentUUID": "acd43f59-fc72-473c-805d-d72455525863",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Web Elements - Input, Buttons",
+              "fullTitle": "Puppeteer Demo Web Elements - Input, Buttons",
+              "timedOut": false,
+              "duration": 9546,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto('https://www.saucedemo.com/')\nawait page.waitForSelector('form')\nawait page.type('input[placeholder=\"Username\"]', 'username', { delay: 500 })\nawait page.type('#password', 'password')\nawait page.click('[data-test=\"login-button\"]')\nawait page.waitForSelector('.error')\nawait setTimeout(3000)",
+              "err": {},
+              "uuid": "63a8365a-8bbe-4f69-8f82-1ac9d266fe6f",
+              "parentUUID": "acd43f59-fc72-473c-805d-d72455525863",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Multimedia",
+              "fullTitle": "Puppeteer Demo Multimedia",
+              "timedOut": false,
+              "duration": 1107,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto('https://www.saucedemo.com/')\nawait page.waitForSelector('form')\nawait page.screenshot({ path: 'my-screenshot.png' })\nawait page.pdf({ path: 'my-pdf.pdf' })",
+              "err": {},
+              "uuid": "7b4aa2ad-8a89-416d-924a-8d48f4a85d54",
+              "parentUUID": "acd43f59-fc72-473c-805d-d72455525863",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Device Emulations",
+              "fullTitle": "Puppeteer Demo Device Emulations",
+              "timedOut": false,
+              "duration": 2838,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const { KnownDevices } = require('puppeteer')\nconst iPhone = KnownDevices['iPhone 15 Pro']\nawait page.emulate(iPhone)\nawait page.goto('https://www.saucedemo.com/')\nconsole.log(KnownDevices['iPhone 15 Pro'])\nawait setTimeout(2000)",
+              "err": {},
+              "uuid": "6d9d5849-5e0a-4ad9-ad28-fe067c19f27e",
+              "parentUUID": "acd43f59-fc72-473c-805d-d72455525863",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "File Upload",
+              "fullTitle": "Puppeteer Demo File Upload",
+              "timedOut": false,
+              "duration": 1191,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto('https://qa-automation-practice.netlify.app/file-upload')\nconst fileInput = await page.$(\"input[type='file']\")\nconst fileToUpload = 'text.txt'\nawait fileInput.uploadFile(fileToUpload)\nawait page.click(\"button[type='submit']\")\nawait page.waitForSelector('#file_upload_response')",
+              "err": {},
+              "uuid": "c8dddb78-948c-4f24-bad8-8371680a2b24",
+              "parentUUID": "acd43f59-fc72-473c-805d-d72455525863",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aad6a53a-72b8-4d64-b4b9-eb8fa44e0371",
+            "63a8365a-8bbe-4f69-8f82-1ac9d266fe6f",
+            "7b4aa2ad-8a89-416d-924a-8d48f4a85d54",
+            "6d9d5849-5e0a-4ad9-ad28-fe067c19f27e",
+            "c8dddb78-948c-4f24-bad8-8371680a2b24"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17415,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 30000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

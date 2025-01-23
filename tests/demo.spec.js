@@ -74,7 +74,7 @@ describe('Puppeteer Demo', () => {
     await setTimeout(2000)
   })
 
-  it.only('File Upload', async () => {
+  it('File Upload', async () => {
     await page.goto('https://qa-automation-practice.netlify.app/file-upload')
 
     const fileInput = await page.$("input[type='file']")
