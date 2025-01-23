@@ -61,4 +61,16 @@ describe('Puppeteer Demo', () => {
     await page.screenshot({ path: 'my-screenshot.png' })
     await page.pdf({ path: 'my-pdf.pdf' })
   })
+
+  it.only('Device Emulations', async () => {
+    const { KnownDevices } = require('puppeteer')
+    const iPhone = KnownDevices['iPhone 15 Pro']
+
+    await page.emulate(iPhone)
+    await page.goto('https://www.saucedemo.com/')
+
+    console.log(KnownDevices['iPhone 15 Pro'])
+
+    await setTimeout(2000)
+  })
 })
