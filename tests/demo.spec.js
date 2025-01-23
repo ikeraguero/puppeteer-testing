@@ -62,7 +62,7 @@ describe('Puppeteer Demo', () => {
     await page.pdf({ path: 'my-pdf.pdf' })
   })
 
-  it.only('Device Emulations', async () => {
+  it('Device Emulations', async () => {
     const { KnownDevices } = require('puppeteer')
     const iPhone = KnownDevices['iPhone 15 Pro']
 
@@ -72,5 +72,17 @@ describe('Puppeteer Demo', () => {
     console.log(KnownDevices['iPhone 15 Pro'])
 
     await setTimeout(2000)
+  })
+
+  it.only('File Upload', async () => {
+    await page.goto('https://qa-automation-practice.netlify.app/file-upload')
+
+    const fileInput = await page.$("input[type='file']")
+    const fileToUpload = 'text.txt'
+
+    await fileInput.uploadFile(fileToUpload)
+    await page.click("button[type='submit']")
+
+    await page.waitForSelector('#file_upload_response')
   })
 })
