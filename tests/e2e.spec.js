@@ -5,6 +5,8 @@ const { timeout } = require('puppeteer')
 
 const { setTimeout } = require('node:timers/promises')
 
+const LoginPage = require('../pages/LoginPage')
+
 describe('E2E Test Demo', () => {
   let browser
   let page
@@ -30,13 +32,12 @@ describe('E2E Test Demo', () => {
   })
 
   it('Eshop flow', async () => {
-    await page.goto('https://www.saucedemo.com/')
-    await page.waitForSelector('.login_container')
+    let loginPage = new LoginPage(page)
+
+    await loginPage.open()
 
     // submit login form
-    await page.type('#user-name', 'standard_user')
-    await page.type('#password', 'secret_sauce')
-    await page.click('#login-button')
+    await loginPage.login('standard_user', 'secret_sauce')
 
     // open product detail
     await page.click('#item_4_title_link')
